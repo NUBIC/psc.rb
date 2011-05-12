@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<study xmlns="http://bioinformatics.northwestern.edu/ns/psc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" assigned-identifier="ABC 1200" last-modified-date="2011-05-12T11:10:29.740Z" xsi:schemaLocation="http://bioinformatics.northwestern.edu/ns/psc http://bioinformatics.northwestern.edu/ns/psc/psc.xsd">
+  <planned-calendar id="9c9c8042-75f1-477a-8855-40e6084f0954"/>
+  <amendment name="[Original]" date="2011-05-12" mandatory="true" released-date="2011-05-12T11:10:29.740Z" updated-date="2011-05-12T10:44:34.568Z">
+    <planned-calendar-delta id="d7adaa30-e2f0-4415-a751-53ccee9433ca" node-id="9c9c8042-75f1-477a-8855-40e6084f0954">
+      <add id="234ae5fa-e712-473d-b395-7e5edf9ef532" index="0">
+        <epoch id="72e7e90a-5f09-49b7-9dc4-785d56cf4414" name="Treatment">
+          <study-segment id="f174f7c2-ceed-4c6c-8392-1688f34b7905" name="A">
+            <period id="e74bbe38-46ad-410c-acd8-fb70f9527c0b" name="Surgery" repetitions="1" start-day="1" duration-quantity="1" duration-unit="day">
+              <planned-activity id="db2ffa63-8c28-43cd-94c4-e8f6801ce42b" day="1">
+                <activity-reference code="1041" source="Northwestern University"/>
+              </planned-activity>
+            </period>
+            <period id="1d8227b3-8f40-424c-a238-bffcda982014" name="Frequent monitoring" repetitions="24" start-day="1" duration-quantity="1" duration-unit="week">
+              <planned-activity id="2da856a4-3d40-4d04-8804-c9ee2b9f90b3" day="1">
+                <activity-reference code="360" source="Northwestern University"/>
+              </planned-activity>
+              <planned-activity id="09791bfb-eaf6-418a-8516-fae296df23f0" day="1">
+                <activity-reference code="253" source="Northwestern University"/>
+              </planned-activity>
+            </period>
+            <period id="e93b9f37-43de-4873-a776-1e7fcefbec59" name="Infrequent monitoring" repetitions="6" start-day="1" duration-quantity="1" duration-unit="month">
+              <planned-activity id="3ad03935-5bdf-448e-88ee-ee656d12afe3" day="1">
+                <activity-reference code="701" source="Northwestern University"/>
+              </planned-activity>
+              <planned-activity id="6fdbfd73-6cc3-41a6-a388-b19cf2bf7b25" day="1">
+                <activity-reference code="451" source="Northwestern University"/>
+              </planned-activity>
+            </period>
+            <period id="0c7852e2-eca1-4b57-9e7a-2d222abf43ea" name="Intervention" repetitions="8" start-day="8" duration-quantity="3" duration-unit="week">
+              <planned-activity id="845b63f0-389d-4b7c-b9df-986b7dd3e4ad" day="1">
+                <activity-reference code="211" source="Northwestern University"/>
+              </planned-activity>
+              <planned-activity id="0be23936-1621-49b3-862e-90eee0b03bf4" day="15">
+                <activity-reference code="211" source="Northwestern University"/>
+              </planned-activity>
+              <planned-activity id="7f599ee3-f45f-4af1-bcfd-3d377b3bbc4a" day="8">
+                <activity-reference code="43" source="Northwestern University"/>
+              </planned-activity>
+            </period>
+          </study-segment>
+          <study-segment id="fe329f59-1253-405a-9933-ea2d70bdf0dc" name="B">
+            <period id="538baa4e-6e4f-4e67-a112-b5a5d1200ba9" name="Frequent monitoring" repetitions="24" start-day="1" duration-quantity="1" duration-unit="week">
+              <planned-activity id="e742696d-c066-4e59-9bd2-f064a468ca87" day="1">
+                <activity-reference code="360" source="Northwestern University"/>
+              </planned-activity>
+              <planned-activity id="d882f175-13ae-4c16-9aa2-38f27c2ea2a6" day="1">
+                <activity-reference code="253" source="Northwestern University"/>
+              </planned-activity>
+            </period>
+            <period id="d54584c4-acc5-4de9-8323-ed36cbced4bc" name="Infrequent monitoring" repetitions="6" start-day="1" duration-quantity="1" duration-unit="month">
+              <planned-activity id="b23569f5-1268-4264-8c4d-bae166616d16" day="1">
+                <activity-reference code="701" source="Northwestern University"/>
+              </planned-activity>
+              <planned-activity id="3c54d7b4-f2ec-4b9e-9fe4-b6d13b92aeba" day="1">
+                <activity-reference code="451" source="Northwestern University"/>
+              </planned-activity>
+            </period>
+            <period id="b85661ef-ff19-462f-83a4-3e53ed69cd84" name="Intervention" repetitions="8" start-day="8" duration-quantity="3" duration-unit="week">
+              <planned-activity id="23a0aac4-87f6-4cd3-8df1-71bee82505ae" day="1">
+                <activity-reference code="211" source="Northwestern University"/>
+              </planned-activity>
+              <planned-activity id="24deeecc-cba8-4d8c-bc55-35048970bb8e" day="15">
+                <activity-reference code="211" source="Northwestern University"/>
+              </planned-activity>
+              <planned-activity id="40cce9be-3a32-4477-9c8d-79104b8625f0" day="8">
+                <activity-reference code="43" source="Northwestern University"/>
+              </planned-activity>
+            </period>
+          </study-segment>
+        </epoch>
+      </add>
+      <add id="1b02eb68-d1c8-4d11-88f2-4785ff91f0bb" index="1">
+        <epoch id="1d0d08cc-ed40-4ebb-923f-ebe0c29e814d" name="Follow up">
+          <study-segment id="4c01e031-1fe9-41ad-970c-368cb57c0c8e" name="Follow up">
+            <period id="3b8bff21-4d30-475f-a9b7-a39afed63b94" name="QoL" repetitions="18" start-day="1" duration-quantity="1" duration-unit="quarter">
+              <planned-activity id="a33a6a83-2b27-4678-a395-4025b399882b" details="Administer by phone" day="1">
+                <activity-reference code="941" source="Northwestern University"/>
+              </planned-activity>
+            </period>
+          </study-segment>
+        </epoch>
+      </add>
+      <add id="aefbcdc5-ac5b-4c0d-b092-b6e9e337969e" index="2">
+        <epoch id="9d7bf8eb-6413-4286-97c0-f44f489883e6" name="Run-in">
+          <study-segment id="14969b7b-e49e-48e0-b081-ba94d9448479" name="Run-in">
+            <period id="3970c8a8-89e3-4d7e-98ac-4f27232cc624" repetitions="3" start-day="1" duration-quantity="7" duration-unit="day">
+              <planned-activity id="cdd73e03-1410-4ae6-9d86-4a8929cd1678" day="1">
+                <activity-reference code="360" source="Northwestern University"/>
+              </planned-activity>
+              <planned-activity id="0df8ccf3-2067-47c6-bbf3-dfbf8512968e" day="7">
+                <activity-reference code="593" source="Northwestern University"/>
+              </planned-activity>
+            </period>
+          </study-segment>
+        </epoch>
+      </add>
+      <reorder id="a455e585-1bee-4770-b191-63fb8ec70066" child-id="9d7bf8eb-6413-4286-97c0-f44f489883e6" old-index="2" new-index="0"/>
+    </planned-calendar-delta>
+  </amendment>
+  <sources>
+    <source name="Northwestern University">
+      <activity name="Ketones (Acetone)" code="593" type="Lab Test"/>
+      <activity name="Taxol" code="211" type="Intervention"/>
+      <activity name="Dialysis Chemistry Panel" code="451" type="Lab Test"/>
+      <activity name="24 hr urine, protein electrophoresis" code="253" type="Lab Test"/>
+      <activity name="Carboplatin" code="43" type="Intervention"/>
+      <activity name="Pregnancy Test" code="701" type="Lab Test"/>
+      <activity name="CBC" code="360" type="Lab Test"/>
+      <activity name="QOL Survey" code="941" type="Other"/>
+      <activity name="Surgery" code="1041" type="Procedure"/>
+    </source>
+  </sources>
+</study>

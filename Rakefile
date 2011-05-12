@@ -4,6 +4,8 @@ require 'ci/reporter/rake/rspec'
 
 Bundler::GemHelper.install_tasks
 
+Dir[File.expand_path('../tasks/*.rake', __FILE__)].each { |f| load f }
+
 desc "Run all specs"
 RSpec::Core::RakeTask.new('spec') do |t|
   t.pattern = 'spec/**/*_spec.rb'

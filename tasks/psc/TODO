@@ -1,0 +1,3 @@
+# TODO: state.rb is copied from PSC's demo creator tool for
+# bootstrapping purposes. Eventually, it should be cleaned up and
+# added as feature of psc.rb.
