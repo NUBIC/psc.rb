@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_dependency 'faraday', '~> 0.6.1'
-  s.add_dependency 'builder', '> 2.2'
+  s.add_dependency 'builder', '>= 2.1.2'
 
   s.add_development_dependency 'rspec', '~> 2.5'
   s.add_development_dependency 'ci_reporter', '~> 1.6'

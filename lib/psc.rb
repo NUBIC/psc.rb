@@ -1,6 +1,8 @@
 require 'builder'
 
 module Psc
+  autoload :Faraday, 'psc/faraday'
+
   ##
   # Wraps `Builder::XmlMarkup` to ease the construction of PSC XML
   # entities. For example:
