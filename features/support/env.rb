@@ -18,7 +18,7 @@ module Psc::Cucumber
     def init_client
       @client = Psc::Client.new(
         File.join(IntPsc.url, 'api/v1'),
-        :authentication => { :basic => [ 'superuser' ] * 2 }
+        :authenticator => { :basic => [ 'superuser' ] * 2 }
       )
     end
 
