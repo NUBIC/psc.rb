@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_dependency 'faraday', '~> 0.6.1'
+  s.add_dependency 'builder', '> 2.2'
 
   s.add_development_dependency 'rspec', '~> 2.5'
   s.add_development_dependency 'ci_reporter', '~> 1.6'
@@ -25,5 +26,4 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'childprocess', '~> 0.1'
   s.add_development_dependency 'nokogiri'
   s.add_development_dependency 'highline'
-  s.add_development_dependency 'builder'
 end
