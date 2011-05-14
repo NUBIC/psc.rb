@@ -1,0 +1,13 @@
+<% platform =
+    if RUBY_PLATFORM == 'java'
+      'jruby'
+    elsif RUBY_VERSION =~ /^1.9/
+      '19'
+    else
+      '18'
+    end
+%>
+default: --strict --tags ~@wip --tags ~@no_<%= platform %> features
+wip: --tags @wip:3 --wip --tags ~@no_<%= platform %> features
+ci: --tags ~@wip --tags ~@badci --tags ~@no_<%= platform %> --format html --out reports/cucumber.html --format junit --out reports/cucumber-xml --format progress --strict features
+wip_platform: --tags @no_<%= platform %> --wip features
