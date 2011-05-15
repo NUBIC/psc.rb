@@ -26,4 +26,9 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'childprocess', '~> 0.1'
   s.add_development_dependency 'nokogiri'
   s.add_development_dependency 'highline'
+
+  # Used by the faraday JSON middleware; either this or AS needs to be
+  # installed at runtime. TODO: either add an actual dep or document
+  # this.
+  s.add_development_dependency 'yajl-ruby'
 end
