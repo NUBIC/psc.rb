@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'faraday', '~> 0.6.1'
   s.add_dependency 'builder', '>= 2.1.2'
 
-  s.add_development_dependency 'rspec', '~> 2.5'
+  s.add_development_dependency 'rspec', '~> 2.6'
   s.add_development_dependency 'ci_reporter', '~> 1.6'
   s.add_development_dependency 'cucumber', '~> 0.10.2'
   s.add_development_dependency 'childprocess', '~> 0.1'
