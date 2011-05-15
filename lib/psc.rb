@@ -24,7 +24,16 @@ module Psc
   # @see http://builder.rubyforge.org/classes/Builder/XmlMarkup.html
   # @return [String]
   def self.xml(root_name, root_attributes={}, &block)
-    root_attributes['xmlns'] = 'http://bioinformatics.northwestern.edu/ns/psc'
+    root_attributes['xmlns'] = xml_namespace['psc']
     Builder::XmlMarkup.new(:indent => 2).tag!(root_name, root_attributes, &block)
+  end
+
+  ##
+  # Provides an XML namespace mapping suitable for use with
+  # Nokogiri. The prefix `psc` is mapped to PSC's namespace.
+  #
+  # @return [Hash<String, String>]
+  def self.xml_namespace
+    { 'psc' => 'http://bioinformatics.northwestern.edu/ns/psc' }
   end
 end
