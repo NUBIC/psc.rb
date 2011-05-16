@@ -19,16 +19,13 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'faraday', '~> 0.7.0'
   s.add_dependency 'builder', '>= 2.1.2'
+  s.add_dependency 'faraday-stack', '~> 0.1.1'
+  s.add_dependency 'nokogiri', '~> 1.4'
+  s.add_dependency 'activesupport', '>= 2.3' # for the JSON adapter
 
   s.add_development_dependency 'rspec', '~> 2.6'
   s.add_development_dependency 'ci_reporter', '~> 1.6'
   s.add_development_dependency 'cucumber', '~> 0.10.2'
   s.add_development_dependency 'childprocess', '~> 0.1'
-  s.add_development_dependency 'nokogiri'
   s.add_development_dependency 'highline'
-
-  # Used by the faraday JSON middleware; either this or AS needs to be
-  # installed at runtime. TODO: either add an actual dep or document
-  # this.
-  s.add_development_dependency 'yajl-ruby'
 end
