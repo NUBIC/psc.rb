@@ -83,4 +83,9 @@ namespace 'int-psc' do
       STDIN.getc
     end
   end
+
+  desc 'Purge the logs for the integration test PSC instance'
+  task :clean_logs do
+    rm_rf IntPsc.path('deploy-base', 'logs')
+  end
 end

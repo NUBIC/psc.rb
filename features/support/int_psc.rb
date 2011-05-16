@@ -40,6 +40,7 @@ class IntPsc
   def self.run(configuration=DEFAULT_CONFIGURATION_NAME)
     psc = self.new(configuration)
     psc.boot
+    puts "Waiting for PSC's API to become available"
     psc.wait_for
     yield psc
     psc.stop
@@ -72,19 +73,24 @@ class IntPsc
 
     @running_psc = ChildProcess.build(*cmd)
     @running_psc.duplex = true
-    @running_psc.io.inherit!
 
-    at_exit { @running_psc.stop if @running_psc.alive? }
+    @output_capture = rolled_log('jetty.out')
+    @running_psc.io.stdout = @output_capture
+    @running_psc.io.stderr = @output_capture
+
+    at_exit { self.stop }
     @running_psc.start
     @running_psc.io.stdin.close # to turn off ShellTUI for the OSGi layer
   end
 
   def stop
-    @running_psc.stop if @running_psc
+    if @running_psc && @running_psc.alive?
+      @running_psc.stop
+      @output_capture.close
+    end
   end
 
   def wait_for
-    puts "Waiting for PSC's API to become available"
     Timeout.timeout(90) do
       while true
         begin
@@ -97,7 +103,6 @@ class IntPsc
         end
       end
     end
-    puts "API ready"
   end
 
   def create_hsql_psc_configuration
@@ -123,6 +128,8 @@ class IntPsc
     end
   end
 
+  private
+
   def expand_if_necessary
     dirtime = File.directory?(expanded_war_directory) ?
       File.mtime(expanded_war_directory) :
@@ -136,5 +143,23 @@ class IntPsc
       end
     end
   end
-end
 
+  def rolled_log(name)
+    log = path('deploy-base', 'logs', name)
+    mkdir_p File.dirname(log)
+    if File.exist?(log)
+      now_s = date_str_from_time(Time.new)
+      existing_s = date_str_from_time(File.mtime(log))
+      if now_s != existing_s
+        rolled_log_name = log.sub(/\.([^\.]+)$/, ".#{existing_s}.\\1")
+        mv log, rolled_log_name
+        sh("gzip -N '#{rolled_log_name}'")
+      end
+    end
+    File.open(log, 'a')
+  end
+
+  def date_str_from_time(t)
+    t.iso8601.split('T').first
+  end
+end
