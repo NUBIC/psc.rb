@@ -9,12 +9,15 @@ Background:
     And I have a PSC::Client instance
 
 Scenario: List studies
-   When I evaluate `client.studies`
-   Then I should receive objects like the following:
+   When I evaluate the following code:
     """
-    [
-      {
-        'assigned_identifier': 'ABC 1200'
-      }
-    ]
+    s = client.studies
+    puts "Study count: #{s.size}"
+    puts "First study: #{s.first['assigned_identifier']}"
     """
+   Then I should see this output:
+    """
+    Study count: 1
+    First study: ABC 1200
+    """
+
