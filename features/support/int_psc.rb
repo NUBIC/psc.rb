@@ -32,6 +32,11 @@ class IntPsc
   end
   def_delegator self, :warfile
 
+  def self.expanded_war_directory
+    path('deploy-base', 'webapps', 'ROOT')
+  end
+  def_delegator self, :expanded_war_directory
+
   def self.run(configuration=DEFAULT_CONFIGURATION_NAME)
     psc = self.new(configuration)
     psc.boot
@@ -47,6 +52,8 @@ class IntPsc
   end
 
   def boot
+    expand_if_necessary
+
     mkdir_p path('deploy-base')
     cmd = [
       'java',
@@ -60,7 +67,7 @@ class IntPsc
       # jetty-runner
       path('jetty', 'jetty-runner-7.4.0.v20110414.jar'),
       "--port", port,
-      warfile
+      expanded_war_directory
     ].compact
 
     @running_psc = ChildProcess.build(*cmd)
@@ -113,6 +120,20 @@ class IntPsc
 
     File.open(path('hsqldb', "#{configuration_name}.properties"), 'a') do |f|
       f.puts 'hsqldb.files_readonly=true'
+    end
+  end
+
+  def expand_if_necessary
+    dirtime = File.directory?(expanded_war_directory) ?
+      File.mtime(expanded_war_directory) :
+      Time.at(0)
+    wartime = File.mtime(warfile)
+    if wartime > dirtime
+      rm_rf expanded_war_directory
+      mkdir_p expanded_war_directory
+      cd expanded_war_directory do
+        system("jar xf '#{warfile}'")
+      end
     end
   end
 end
