@@ -64,5 +64,6 @@ namespace :ci do
     t.profile = 'ci'
   end
 
-  task :build => %w(int-psc:war int-psc:clean_logs spec cucumber)
+  # currently bypassing ci_reporter due to https://github.com/nicksieger/ci_reporter/issues/5
+  task :build => %w(int-psc:war int-psc:clean_logs rake:spec cucumber)
 end
