@@ -62,4 +62,6 @@ namespace :ci do
     t.fork = true
     t.profile = 'ci'
   end
+
+  task :build => %w(int-psc:war spec cucumber)
 end

@@ -2,6 +2,7 @@
 .bundle
 Gemfile.lock
 pkg/*
+reports
 
 int-psc/downloads
 int-psc/bin/*
