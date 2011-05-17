@@ -153,7 +153,7 @@ class IntPsc
       if now_s != existing_s
         rolled_log_name = log.sub(/\.([^\.]+)$/, ".#{existing_s}.\\1")
         mv log, rolled_log_name
-        sh("gzip -N '#{rolled_log_name}'")
+        system("gzip -N '#{rolled_log_name}'")
       end
     end
     File.open(log, 'a')
