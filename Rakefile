@@ -12,6 +12,7 @@ desc "Run all specs"
 RSpec::Core::RakeTask.new('spec') do |t|
   t.pattern = 'spec/**/*_spec.rb'
   t.verbose = true
+  t.rspec_opts = ['--format', 'html', '--out', 'reports/spec.html', '--format', 'p']
 end
 
 task :cucumber => 'cucumber:ok'
