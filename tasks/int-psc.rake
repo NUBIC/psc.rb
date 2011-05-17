@@ -65,6 +65,8 @@ namespace 'int-psc' do
     IntPsc.run do |int_psc|
       int_psc.apply_state_and_mark_readonly
     end
+    # the copied log file is not needed in the locked database
+    rm path('hsqldb', 'datasource.log')
   end
 
   desc 'Start up the integrated test PSC instance to poke around'
