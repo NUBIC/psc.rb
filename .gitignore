@@ -7,5 +7,7 @@ reports
 int-psc/downloads
 int-psc/bin/*
 int-psc/deploy-base
+int-psc/baseline.properties
+int-psc/datasource.properties
 
 .yardoc

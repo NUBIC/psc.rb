@@ -37,15 +37,10 @@ namespace 'int-psc' do
   end
 
   task :clean_baseline do
-    rm_rf IntPsc.path('baseline.properties')
     rm_rf IntPsc.path('hsqldb')
   end
 
-  task :create_baseline_config do |t|
-    IntPsc.new('baseline').create_hsql_psc_configuration
-  end
-
-  task :recreate_baseline => [IntPsc.warfile, :clean_baseline, :create_baseline_config] do
+  task :recreate_baseline => [IntPsc.warfile, :clean_baseline] do
     IntPsc.run('baseline') do
       puts
       puts "Please run through PSC's setup flow and create an all-powerful user with the"
@@ -65,12 +60,8 @@ namespace 'int-psc' do
     end
   end
 
-  task :create_datasource_config do |t|
-    IntPsc.new.create_hsql_psc_configuration
-  end
-
   desc 'Recreate the PSC integrated test instance from the state data in int-psc/state'
-  task :rebuild => [IntPsc.warfile, :clean_datasource, :create_datasource_config] do
+  task :rebuild => [IntPsc.warfile, :clean_datasource] do
     IntPsc.run do |int_psc|
       int_psc.apply_state_and_mark_readonly
     end

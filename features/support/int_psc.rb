@@ -54,8 +54,8 @@ class IntPsc
 
   def boot
     expand_if_necessary
+    create_hsql_psc_configuration
 
-    mkdir_p path('deploy-base')
     cmd = [
       'java',
       ENV['JAVA_OPTS'],
