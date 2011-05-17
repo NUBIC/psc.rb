@@ -19,6 +19,14 @@ module Psc
 
         builder.adapter :net_http unless has_adapter?(builder)
       end
+
+      unless self.path_prefix =~ %r{/api/v1$}
+        self.path_prefix = if self.path_prefix == '/'
+                             '/api/v1'
+                           else
+                             self.path_prefix + '/api/v1'
+                           end
+      end
     end
 
     private

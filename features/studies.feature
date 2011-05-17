@@ -1,4 +1,3 @@
-@wip
 Feature: List studies
 
 In order to understand what templates are available
@@ -20,4 +19,3 @@ Scenario: List studies
     Study count: 1
     First study: ABC 1200
     """
-

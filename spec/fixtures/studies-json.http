@@ -1,0 +1,37 @@
+HTTP/1.1 200 OK
+Date: Mon, 16 May 2011 21:47:14 GMT
+Server: Restlet-Framework/2.0.3
+Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+Pragma: no-cache
+Accept-Ranges: bytes
+Vary: Accept-Charset,Accept-Encoding,Accept-Language,Accept
+Content-Type: application/json
+Connection: close
+Transfer-Encoding: chunked
+
+{
+  "studies": [
+    {
+      "privileges": [
+        "develop",
+        "see-development",
+        "set-managing-sites",
+        "release",
+        "assign-identifiers",
+        "purge"
+      ],
+      "assigned_identifier": "NU 1404"
+    },
+    {
+      "privileges": [
+        "develop",
+        "see-development",
+        "set-managing-sites",
+        "release",
+        "assign-identifiers",
+        "purge"
+      ],
+      "assigned_identifier": "ECOG 5607"
+    }
+  ]
+}

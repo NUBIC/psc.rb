@@ -2,6 +2,7 @@ require 'builder'
 
 module Psc
   autoload :Faraday,    'psc/faraday'
+  autoload :Client,     'psc/client'
   autoload :Connection, 'psc/connection'
 
   ##

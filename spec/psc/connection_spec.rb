@@ -10,6 +10,36 @@ module Psc
       { :authenticator => { :basic => ['foo', 'bar'] } }
     }
 
+    describe 'appending the API path' do
+      def actual_path_prefix(url)
+        Psc::Connection.new(url, options).path_prefix
+      end
+
+      it 'is appended correctly if the URL ends with a slash' do
+        actual_path_prefix('http://psc.example.org/').should == '/api/v1'
+      end
+
+      it 'is appended correctly if the URL does not end with a slash' do
+        actual_path_prefix('http://psc.example.org').should == '/api/v1'
+      end
+
+      it 'is appended correctly if the URL has path info that ends with a slash' do
+        actual_path_prefix('http://www.example.net/psc/').should == '/psc/api/v1'
+      end
+
+      it 'is appended correctly if the URL has path info that does not end with a slash' do
+        actual_path_prefix('http://www.example.net/psc').should == '/psc/api/v1'
+      end
+
+      it 'is not appended if it is already there and it ends with a slash' do
+        actual_path_prefix('http://www.example.net/api/v1').should == '/api/v1'
+      end
+
+      it 'is not appended if it is already there and it does not end with a slash' do
+        actual_path_prefix('http://www.example.net/api/v1/').should == '/api/v1'
+      end
+    end
+
     DEFAULT_MIDDLEWARE_COUNT = 6
 
     describe 'the default middleware' do
