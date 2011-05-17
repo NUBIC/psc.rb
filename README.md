@@ -1,8 +1,3 @@
-(Beware: [Readme-driven development in
-progress](http://tom.preston-werner.com/2010/08/23/readme-driven-development.html). This
-is documentation for expected features, not for the current state of
-the library.)
-
 # psc.rb
 
 `psc.rb` is a ruby client for [Patient Study Calendar][psc]'s RESTful
@@ -135,7 +130,7 @@ custom classes are in the {Psc::Faraday} module.
 ## Project info
 
 * [Source code][github]
-* [API Documentation][rubydoc]
+* [API documentation][rubydoc]
 * [Bug reports and feature requests][issues]
 * [Continuous integration][ci]
 * Version policy: [semantic versioning][semver]
