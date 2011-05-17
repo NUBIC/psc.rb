@@ -39,11 +39,6 @@ site][demo-docs]) before using this library.
 
     $ gem install psc
 
-## High-level interface
-
-{Psc::Client} provides a high-level interface to some of PSC's API
-capabilities.
-
 ## Authentication
 
 PSC supports two forms of authentication for API calls: HTTP Basic
@@ -82,6 +77,11 @@ each request and whose return value will be used for the PSC token:
 
 The callable will be called with no arguments.
 
+## High-level interface
+
+{Psc::Client} provides a high-level interface to some of PSC's API
+capabilities.
+
 ## Low-level interface
 
 `psc.rb` is based on [Faraday][], a modular ruby HTTP
@@ -89,28 +89,31 @@ client. {Psc::Connection} is a Faraday connection configured
 for access to a particular PSC instance. You can create a
 `Psc::Connection` directly:
 
-    conn = Psc::Connection.new('https://demos.nubic.northwestern.edu/psc',
-             :authenticator => { :basic => %w(superuser superuser) })
-
-    studies_json = conn.get('studies.json')
-    first_study_name =
-             studies_json.body['studies'].first['assigned_identifier']
-
-    sites_xml = conn.get('sites.xml')
-    first_site_name =
-             sites_xml.body.xpath('//psc:site', Psc.xml_namespace).first.attr('site-name')
+    conn = Psc::Connection.new(
+      'https://demos.nubic.northwestern.edu/psc',
+      :authenticator => { :basic => %w(superuser superuser) })
 
 Or you can get an instance from the {Psc::Client} high-level
 interface:
 
-    client = Psc::Client.new('https://demos.nubic.northwestern.edu/psc',
-               :authenticator => { :basic => %w(superuser superuser) }
+    client = Psc::Client.new(
+      'https://demos.nubic.northwestern.edu/psc',
+      :authenticator => { :basic => %w(superuser superuser) })
     conn = client.connection
-    # do as you will
 
 The connection is set up to automatically parse JSON reponses into
 appropriate ruby primitives and XML responses into [Nokogiri][]
-documents. Similarly, for PUT and POST it will encode a `Hash` or
+documents.
+
+    studies_json = conn.get('studies.json')
+    first_study_name =
+      studies_json.body['studies'].first['assigned_identifier']
+
+    sites_xml = conn.get('sites.xml')
+    first_site_name =
+      sites_xml.body.xpath('//psc:site', Psc.xml_namespace).first.attr('site-name')
+
+Similarly, for PUT and POST it will encode a `Hash` or
 `Array` entity as JSON and will assume that a `String` entity is XML.
 
 [Faraday]: https://github.com/technoweenie/faraday
@@ -128,4 +131,3 @@ relative URLs.
 Faraday connections are built up from middleware. `Psc::Connection`
 uses a combination of off-the-shelf and custom middleware classes. The
 custom classes are in the {Psc::Faraday} module.
-

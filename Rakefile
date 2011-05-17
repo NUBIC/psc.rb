@@ -1,9 +1,10 @@
 require 'bundler'
+Bundler::GemHelper.install_tasks
+
 require 'rspec/core/rake_task'
 require 'ci/reporter/rake/rspec'
 require 'cucumber/rake/task'
-
-Bundler::GemHelper.install_tasks
+require 'yard'
 
 Dir[File.expand_path('../tasks/*.rake', __FILE__)].each { |f| load f }
 
@@ -35,6 +36,20 @@ namespace :cucumber do
 
   desc "Run all features"
   task :all => [:ok, :wip, :wip_platform]
+end
+
+task :yard => ['yard:auto']
+
+namespace :yard do
+  desc "Run a server which will rebuild documentation as the source changes"
+  task :auto do
+    system("bundle exec yard server --reload")
+  end
+
+  desc "Build API documentation with yard"
+  YARD::Rake::YardocTask.new("once") do |t|
+    t.options = ["--title", "psc.rb #{Psc::VERSION}"]
+  end
 end
 
 namespace :ci do

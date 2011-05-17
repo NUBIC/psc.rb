@@ -6,3 +6,5 @@ pkg/*
 int-psc/downloads
 int-psc/bin/*
 int-psc/deploy-base
+
+.yardoc

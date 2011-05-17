@@ -22,6 +22,12 @@ module Psc
       @connection = Psc::Connection.new(url, options, &block)
     end
 
+    ##
+    # Returns an array of hashes describing the studies in the system.
+    # The contents are from the JSON representation of the `/studies`
+    # resource.
+    #
+    # @return [Array<Hash>]
     def studies
       connection.get('studies.json').body['studies']
     end

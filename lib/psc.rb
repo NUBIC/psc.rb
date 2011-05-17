@@ -1,5 +1,7 @@
 require 'builder'
 
+##
+# The namespace for `psc.rb`.
 module Psc
   autoload :Faraday,    'psc/faraday'
   autoload :Client,     'psc/client'
@@ -24,18 +26,22 @@ module Psc
   #     }
   #
   # @see http://builder.rubyforge.org/classes/Builder/XmlMarkup.html
-  # @return [String]
+  # @return [String] the constructed XML
   def self.xml(root_name, root_attributes={}, &block)
     root_attributes['xmlns'] = xml_namespace['psc']
     Builder::XmlMarkup.new(:indent => 2).tag!(root_name, root_attributes, &block)
   end
 
   ##
+  # @private
+  XML_NAMESPACE = { 'psc' => 'http://bioinformatics.northwestern.edu/ns/psc' }.freeze
+
+  ##
   # Provides an XML namespace mapping suitable for use with
   # Nokogiri. The prefix `psc` is mapped to PSC's namespace.
   #
-  # @return [Hash<String, String>]
+  # @return [Hash<String, String>] the mapping
   def self.xml_namespace
-    { 'psc' => 'http://bioinformatics.northwestern.edu/ns/psc' }
+    XML_NAMESPACE
   end
 end
