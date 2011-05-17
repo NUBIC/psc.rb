@@ -63,5 +63,5 @@ namespace :ci do
     t.profile = 'ci'
   end
 
-  task :build => %w(int-psc:war spec cucumber)
+  task :build => %w(int-psc:war int-psc:clean_logs spec cucumber)
 end
