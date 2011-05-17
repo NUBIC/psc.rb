@@ -131,3 +131,33 @@ relative URLs.
 Faraday connections are built up from middleware. `Psc::Connection`
 uses a combination of off-the-shelf and custom middleware classes. The
 custom classes are in the {Psc::Faraday} module.
+
+## Project info
+
+* [Source code][github]
+* [API Documentation][rubydoc]
+* [Bug reports and feature requests][issues]
+* [Continuous integration][ci]
+* Version policy: [semantic versioning][semver]
+
+[rubydoc]: http://rubydoc.info/gems/psc
+[issues]: https://github.com/NUBIC/psc.rb/issues
+[github]: https://github.com/NUBIC/psc.rb
+[ci]: https://ctms-ci.nubic.northwestern.edu/hudson/jobs/psc.rb
+[semver]: http://semver.org/
+
+### Running the tests
+
+`psc.rb` has an rspec suite for unit tests and a set of cucumber
+features for integration tests. Before you can run the cucumber
+features you will need to either
+
+ * Execute `rake int-psc:war` to download a copy of PSC to use
+ * Copy a PSC war into `int-psc/bin`
+
+### Patches
+
+Patches with tests are happily considered. Please use a [pull
+request][].
+
+[pull request]: http://help.github.com/pull-requests/

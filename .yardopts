@@ -1,4 +1,4 @@
 --no-private
 --markup markdown
 --hide-void-return
---files CHANGELOG.md
+--files CHANGELOG.md,int-psc/README-int-psc.md

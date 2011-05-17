@@ -3,6 +3,15 @@
 This directory contains artifacts related to the PSC instance that
 psc.rb deploys to run its integration tests. Highlights below.
 
+## bin/
+
+The integrated test infrastructure looks in this directory for a file
+named `psc.war` to deploy. If you don't want to provide your own, you
+can download the latest nightly by running `rake int-psc:war`.
+
+This means you can run the integration tests against different
+versions of PSC by swapping out `psc.war`.
+
 ## hsqldb/
 
 The PSC instance is backed by HSQLDB. There are rake tasks to assist
@@ -42,14 +51,6 @@ comments describing its format.
 Whenever you change the data this directory, you should run `rake
 int-psc:rebuild` and then commit the changed versions of
 `hsqldb/datasource.*` along with your data changes.
-
-## bin/
-
-The integrated test infrastructure looks in this directory for a file
-named `psc.war` to deploy. If there isn't one, it will download the
-latest nightly of PSC and use that. This means you can run the
-integration tests against different versions of PSC by swapping out
-`psc.war`.
 
 ## deploy-base/logs/
 
