@@ -29,5 +29,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'childprocess', '~> 0.1'
   s.add_development_dependency 'highline'
   s.add_development_dependency 'webmock', '~> 1.6'
-  s.add_development_dependency 'yard', '~> 0.6.8'
+  s.add_development_dependency 'yard', '~> 0.7.1'
 end
