@@ -26,7 +26,10 @@ site][demo-docs]) before using this library.
 
     pp psc.studies
 
-(This code will run if you have the psc gem installed; try it and see.)
+(This code will run if you have the psc gem installed, so long as your
+ruby's openssl has a reasonable set of commercial CAs configured; try
+it and see. If you get a certificate validation error, check out
+{file:README-ssl.md} for some tips.)
 
 ## Installing
 

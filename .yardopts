@@ -2,3 +2,4 @@
 --markup markdown
 --hide-void-return
 --files CHANGELOG.md,int-psc/README-int-psc.md
+--readme README.md
