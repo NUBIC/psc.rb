@@ -94,7 +94,7 @@ class IntPsc
     Timeout.timeout(90) do
       while true
         begin
-          open(File.join(self.url, '/api/v1/docs')) { |f| f.read }
+          open(File.join(self.url, '/api/v1/docs/psc.xsd')) { |f| f.read }
           break
         rescue RuntimeError
           sleep(1)
