@@ -11,8 +11,8 @@ Scenario: List studies
    When I evaluate the following code:
     """
     s = client.studies
-    puts "Study count: #{s.size}"
-    puts "First study: #{s.first['assigned_identifier']}"
+    $stdout.puts "Study count: #{s.size}"
+    $stdout.puts "First study: #{s.first['assigned_identifier']}"
     """
    Then I should see this output:
     """
