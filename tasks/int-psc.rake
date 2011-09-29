@@ -14,7 +14,7 @@ namespace 'int-psc' do
       sh [
         'curl',
         '-o', task.name,
-        "'https://public-ci.nubic.northwestern.edu/job/PSC%20nightly%20distribution/lastSuccessfulBuild/artifact/*zip*/archive.zip'"
+        "'https://ctms-ci.nubic.northwestern.edu/job/PSC%20nightly%20distribution/lastSuccessfulBuild/artifact/*zip*/archive.zip'"
       ].join(' ')
     end
 
