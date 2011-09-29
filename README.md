@@ -141,7 +141,7 @@ custom classes are in the {Psc::Faraday} module.
 [rubydoc]: http://rubydoc.info/gems/psc
 [issues]: https://github.com/NUBIC/psc.rb/issues
 [github]: https://github.com/NUBIC/psc.rb
-[ci]: https://ctms-ci.nubic.northwestern.edu/hudson/job/psc.rb
+[ci]: https://public-ci.nubic.northwestern.edu/job/psc.rb
 [semver]: http://semver.org/
 
 ### Running the tests
