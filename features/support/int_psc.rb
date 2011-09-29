@@ -114,10 +114,14 @@ class IntPsc
     raise e
   end
 
+  def jdbc_url
+    "jdbc:hsqldb:file:#{path('hsqldb', configuration_name)};shutdown=true"
+  end
+
   def create_hsql_psc_configuration
     File.open(path("#{configuration_name}.properties"), 'w') do |f|
       f.puts [
-        "datasource.url=jdbc:hsqldb:file:#{path('hsqldb', configuration_name)};shutdown=true",
+        "datasource.url=#{jdbc_url}",
         'datasource.username=sa',
         'datasource.password=',
         'datasource.driver=org.hsqldb.jdbcDriver'
@@ -137,7 +141,23 @@ class IntPsc
     end
   end
 
+  def hsqldb_shutdown_compact
+    sqltool 'SHUTDOWN COMPACT;'
+  end
+
   private
+
+  def sqltool(commands)
+    cmd =
+      "java -jar #{hsqldb_jar} --inlineRc 'URL=#{jdbc_url}',USER=sa,PASSWORD= --sql '#{commands}'"
+    $stderr.puts cmd
+    system(cmd)
+  end
+
+  def hsqldb_jar
+    @hsqldb_jar ||=
+      Dir[File.join(expanded_war_directory, 'WEB-INF/lib/*.jar')].detect { |p| p =~ /hsqldb/ }
+  end
 
   def expand_if_necessary
     dirtime = File.directory?(expanded_war_directory) ?
