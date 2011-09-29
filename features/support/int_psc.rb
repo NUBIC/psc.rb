@@ -103,6 +103,15 @@ class IntPsc
         end
       end
     end
+  rescue Timeout::Error => e
+    $stderr.puts "PSC's API did not become available within 90s."
+    if ENV['CI_RUBY']
+      $stderr.puts "Output from the runner may help figure out the problem:"
+      $stderr.puts File.read(path('deploy-base', 'logs', 'jetty.out'))
+    else
+      $stderr.puts "Take a look at the logs in #{path('deploy-base', 'logs')} for hints."
+    end
+    raise e
   end
 
   def create_hsql_psc_configuration

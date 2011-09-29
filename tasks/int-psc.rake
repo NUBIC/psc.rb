@@ -66,7 +66,7 @@ namespace 'int-psc' do
       int_psc.apply_state_and_mark_readonly
     end
     # the copied log file is not needed in the locked database
-    rm path('hsqldb', 'datasource.log')
+    rm IntPsc.path('hsqldb', 'datasource.log')
   end
 
   desc 'Start up the integrated test PSC instance to poke around'
@@ -80,5 +80,10 @@ namespace 'int-psc' do
   desc 'Purge the logs for the integration test PSC instance'
   task :clean_logs do
     rm_rf IntPsc.path('deploy-base', 'logs')
+  end
+
+  desc 'Remove the database lock if it was left over by a previous run'
+  task :unlock_database do
+    rm_rf IntPsc.path('hsqldb', 'datasource.lck')
   end
 end
