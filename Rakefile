@@ -65,5 +65,5 @@ namespace :ci do
   end
 
   # currently bypassing ci_reporter due to https://github.com/nicksieger/ci_reporter/issues/5
-  task :build => %w(int-psc:war int-psc:clean_logs rake:spec cucumber)
+  task :build => %w(int-psc:rebuild int-psc:clean_logs rake:spec cucumber)
 end
