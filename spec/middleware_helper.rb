@@ -12,7 +12,7 @@ end
 
 shared_examples 'unconditional middleware' do
   it 'continues the chain' do
-    app.should_receive(:call)
+    app.should_receive(:call).with(env)
     subject.call(env)
   end
 end

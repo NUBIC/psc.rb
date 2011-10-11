@@ -29,7 +29,7 @@ module Psc
       def call(env)
         env[:request_headers]['Authorization'] = "psc_token #{token}"
 
-        @app.call
+        @app.call(env)
       end
 
       private
