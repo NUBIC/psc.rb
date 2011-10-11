@@ -1,6 +1,6 @@
 #!/bin/bash -xe
 
-BUNDLER_VERSION=1.0.20
+BUNDLER_VERSION=1.1.rc
 GEMSET=psc-rb
 
 if [ -z $CI_RUBY ]; then
