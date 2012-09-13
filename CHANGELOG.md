@@ -1,5 +1,7 @@
-0.0.3
+0.1.0
 =====
+
+- Add middleware to set a reasonable default Accept header for PSC. (#5)
 
 0.0.2
 =====

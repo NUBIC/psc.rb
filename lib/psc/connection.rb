@@ -37,6 +37,7 @@ module Psc
       super do |builder|
         builder.use *authentication_middleware(options[:authenticator])
         builder.use Psc::Faraday::StringIsXml
+        builder.use Psc::Faraday::AcceptPscTypes
         builder.request :json
         builder.request :url_encoded
         builder.use FaradayStack::ResponseXML, :content_type => 'text/xml'

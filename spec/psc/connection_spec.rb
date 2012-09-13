@@ -40,7 +40,7 @@ module Psc
       end
     end
 
-    DEFAULT_MIDDLEWARE_COUNT = 6
+    DEFAULT_MIDDLEWARE_COUNT = 7
 
     describe 'the default middleware' do
       it 'has the authentication middleware first' do
@@ -51,20 +51,24 @@ module Psc
         conn.builder[1].should == Psc::Faraday::StringIsXml
       end
 
+      it 'has the accept header middleware next' do
+        conn.builder[2].should == Psc::Faraday::AcceptPscTypes
+      end
+
       it 'has the Faraday JSON request middleware next' do
-        conn.builder[2].should == ::Faraday::Request::JSON
+        conn.builder[3].should == ::Faraday::Request::JSON
       end
 
       it 'has the Faraday URL-encoded request middleware next' do
-        conn.builder[3].should == ::Faraday::Request::UrlEncoded
+        conn.builder[4].should == ::Faraday::Request::UrlEncoded
       end
 
       it 'has the FaradayStack XML parser middleware next' do
-        conn.builder[4].should == ::FaradayStack::ResponseXML
+        conn.builder[5].should == ::FaradayStack::ResponseXML
       end
 
       it 'has the FaradayStack JSON parser middleware next' do
-        conn.builder[5].should == ::FaradayStack::ResponseJSON
+        conn.builder[6].should == ::FaradayStack::ResponseJSON
       end
     end
 
