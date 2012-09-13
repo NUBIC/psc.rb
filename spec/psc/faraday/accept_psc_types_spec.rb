@@ -3,7 +3,7 @@ require File.expand_path('../../../spec_helper', __FILE__)
 module Psc::Faraday
   describe AcceptPscTypes do
     include_context 'middleware'
-    include_context 'unconditional middleware'
+    it_behaves_like "unconditional middleware"
 
     subject { AcceptPscTypes.new(app) }
 

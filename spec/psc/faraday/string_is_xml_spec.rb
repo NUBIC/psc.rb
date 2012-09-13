@@ -3,6 +3,7 @@ require File.expand_path('../../../spec_helper', __FILE__)
 module Psc::Faraday
   describe StringIsXml do
     include_context 'middleware'
+    it_behaves_like "unconditional middleware"
 
     subject { StringIsXml.new(app) }
 
