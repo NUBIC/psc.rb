@@ -31,6 +31,10 @@ ruby's openssl has a reasonable set of commercial CAs configured; try
 it and see. If you get a certificate validation error, check out
 {file:README-ssl.md} for some tips.)
 
+Note that this overview uses the high-level `Psc::Client` interface. It does not
+provide a complete interface to PSC; for most of PSC's API, you'll need to use
+the lower-level `Psc::Connection` interface; see below.
+
 ## Installing
 
 `psc.rb` is available as a rubygem:
