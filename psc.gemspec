@@ -19,7 +19,10 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'faraday', '~> 0.7.0'
   s.add_dependency 'builder', '>= 2.1.2'
-  s.add_dependency 'faraday-stack', '~> 0.1.1'
+  # TODO: update to faraday_middleware instead. This lock is a temporary
+  # workaround to allow the gem to be installed on JRuby 1.7+, where 0.1.5
+  # frequently has psych problems.
+  s.add_dependency 'faraday-stack', '< 0.1.5'
   s.add_dependency 'nokogiri', '~> 1.4'
   s.add_dependency 'activesupport', '>= 2.3' # for the JSON adapter
 
